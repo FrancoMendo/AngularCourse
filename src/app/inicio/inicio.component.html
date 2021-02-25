@@ -1,0 +1,43 @@
+<body style="height: auto; position: relative; z-index: 1; border-radius: 15px; opacity: 0.9;" class="p-3 mt-3 mb-3">
+  <p>inicio works!</p>
+  <h4 style="text-align: center;">Metodos y manejo de eventos</h4>
+  <button (click)="sayHello()" class="btn btn-info">Alert</button>
+   
+   <form (submit)="addUser(newUser)">
+     <input type="text" #newUser>
+     <button>
+       Send User
+     </button>
+   </form>
+
+   <ul>
+     <li *ngFor="let user of users">
+       {{ user }}
+       <button (click)="deleteUser(user)" class="btn btn-danger">X</button>
+     </li>
+   </ul>
+   <hr>
+   <h4 style="text-align: center;">Data de servidor placeholder</h4>
+   <div class="overflow-auto" style="height: 400px; background-color: rgb(144, 222, 241); border-radius: 10px;">
+     <ul>
+       <li *ngFor="let post of posts">
+         <h4>{{ post.title }}</h4>
+         <h5>{{post.body}}</h5>
+       </li>
+     </ul>
+   </div>
+   <hr>
+   <h4 style="text-align: center;">Ng Model de angular(atributo especial para forms)</h4>
+   <!-- Se puede usar ngmodel como atributo [], como evento () o los dos [()] -->
+   <h5>Tu nombre es {{ titulo }}</h5>
+   <input type="text" [(ngModel)]="titulo" (ngModelChange)="log($event)">
+   <br> <br>
+   <h5>Vinculo a valor de select= Option seleccionada es {{ seleccion }}</h5>
+   <select [(ngModel)]="seleccion">
+      <option value="Toyota">Toyota</option>
+      <option value="Hyundai">Hyundai</option>
+      <option value="Mercedes">Mercedes</option>
+   </select>
+
+</body>
+
